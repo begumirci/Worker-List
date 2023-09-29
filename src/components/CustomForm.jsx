@@ -9,6 +9,8 @@ function CustomForm(){
     const [salary, setSalary] = useState(''); 
     const [users, setUser] = useState([]);
     const [isSalary, setIsSalary] = useState(false);
+    const [isName,setIsName] = useState(false);
+    
 
     function addCustom(e){
         e.preventDefault();
@@ -18,15 +20,19 @@ function CustomForm(){
             name: name.toUpperCase(),
             salary:salary
         }
-
-        if(salary < 10000){
+        
+        if(name === ''){
+            setIsName(true);
+        } else if (salary < 10000){
             setIsSalary(true);
-        }else{
+        }
+        else{
             setIsSalary(false);
             setUser([...users, newUser]);
             setName('');
             setSalary('');
         }
+        
     }
     
 
@@ -36,14 +42,16 @@ function CustomForm(){
             <form className="CustomForm">
                 <label className="custom-name">
                     Çalışan İsmi:
-                    <input type="text" placeholder="Çalışan ismi" className="input" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input type="text" placeholder="Çalışan ismi" required className="input" value={name} onChange={(e) => setName(e.target.value)} />
                 </label>
                 <label className="custom-salary">
                     Maaş:
-                    <input type="number" placeholder="Maaş girin" className="input" value={salary} onChange={(e) => setSalary(e.target.value)} />
+                    <input type="number" placeholder="Maaş girin" required className="input" value={salary} onChange={(e) => setSalary(e.target.value)} />
                 </label>
                 <button className='custom-save' onClick={addCustom}>Ekle</button>
-                {isSalary ? <div className='warning-msg'>Maaşın asgari tutardan fazla olması gerekiyor ! </div> : ''}
+                {isName ? <div className='warning-msg'>Çalışan isminin girilmesi gerekiyor ! </div> : ''}
+                {isSalary ? <div className='warning-msg bottom'>Maaşın asgari tutardan fazla olması gerekiyor ! </div> : ''}
+                
             </form>
             <CustomCart users={users} setUser={setUser}/>
         </div>

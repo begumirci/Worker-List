@@ -119,6 +119,7 @@
     box-shadow: inset 100px 100px 100px -72px rgb(193, 121, 121);
     border-radius: 5em;
     padding-inline:7px;
+    cursor:pointer;
     
 }
 
@@ -188,5 +189,12 @@ color:rgb(193, 121, 121);
     color:rgb(193, 121, 121);
     font-weight: bold;
     cursor:pointer;
+}
+
+.cart:hover{
+    box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px, rgba(45, 35, 66, 0.2) 0 7px 13px -3px, rgb(193, 121, 121) 0 -3px 0 inset;
+    transform: translateY(-2px);
+    color:rgba(0,0,0,0.3);
+    
 }
 

@@ -2,15 +2,17 @@ import './CustomForm.css';
 import { useState } from 'react';
 import CustomCart from './CustomCart';
 import '../App.css';
+import ErrorModal from './ErrorModal';
 
 
 function CustomForm(){
     const [name, setName] = useState('');
     const [salary, setSalary] = useState(''); 
     const [users, setUser] = useState([]);
-    const [isSalary, setIsSalary] = useState(false);
-    const [isName,setIsName] = useState(false);
-    
+    const [error, setError] = useState('');
+    const [isError, setIserror] = useState(false);
+    // const [isSalary, setIsSalary] = useState(false);
+    // const [isName,setIsName] = useState(false);
 
     function addCustom(e){
         e.preventDefault();
@@ -21,24 +23,36 @@ function CustomForm(){
             salary:salary
         }
         
-        if(name === ''){
-            setIsName(true);
-        } else if (salary < 10000){
-            setIsSalary(true);
+        if(name.trim().length === 0){
+            setIserror(true);
+            setError('İsim girmek zorunlu !');
+            // setIsName(true);
+            return;
         }
-        else{
-            setIsSalary(false);
-            setUser([...users, newUser]);
-            setName('');
-            setSalary('');
+        if (salary < 10000){
+            setIserror(true);
+            setError('Maaş 10000₺ altında olamaz !');
+            // setIsSalary(true);
+            return;
         }
         
+        // setIsSalary(false);
+        setUser([...users, newUser]);
+        setName('');
+        setSalary('');
     }
+
+    function closeModal(){
+        setIserror(false);
+    }
+        
+    
     
 
     return(
 
         <div className="container">
+            {isError ? <ErrorModal error={error} closeModal={closeModal} /> : '' };
             <form className="CustomForm">
                 <label className="custom-name">
                     Çalışan İsmi:
@@ -49,8 +63,8 @@ function CustomForm(){
                     <input type="number" placeholder="Maaş girin" required className="input" value={salary} onChange={(e) => setSalary(e.target.value)} />
                 </label>
                 <button className='custom-save' onClick={addCustom}>Ekle</button>
-                {isName ? <div className='warning-msg'>Çalışan isminin girilmesi gerekiyor ! </div> : ''}
-                {isSalary ? <div className='warning-msg bottom'>Maaşın asgari tutardan fazla olması gerekiyor ! </div> : ''}
+                {/* {isName ? <div className='warning-msg'>Çalışan isminin girilmesi gerekiyor ! </div> : ''}
+                {isSalary ? <div className='warning-msg bottom'>Maaşın asgari tutardan fazla olması gerekiyor ! </div> : ''} */}
                 
             </form>
             <CustomCart users={users} setUser={setUser}/>
@@ -62,4 +76,4 @@ function CustomForm(){
 
 }
 
-export default CustomForm;
+export default CustomForm

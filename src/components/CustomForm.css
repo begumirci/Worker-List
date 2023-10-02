@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     gap:40px;
+    z-index: 1;
 }
 
 .CustomForm{
@@ -137,5 +138,55 @@
 h6{
     font-weight: bold;
     font-size: 20px;
+}
+
+.modal{
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 2;
+backdrop-filter: blur(5px);
+width:100%;
+height: 100%;
+position: fixed;
+background-color: rgba(0, 0, 0, 0.3);
+left:0;
+top:0;
+color:rgb(193, 121, 121);
+
+}
+
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:400px;
+    gap:1rem;
+    padding:15px;
+    border-radius: 27px;
+    background-color:rgb(214, 222, 222);
+    margin-top:10px;
+
+}
+
+.modalBtn{
+    width:250px;
+    border-radius: 50px;
+    box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    background-color: #FCFCFD;
+    padding-left: 16px;
+    padding-right: 16px;
+    touch-action: manipulation;
+    white-space: nowrap;
+    font-size: 18px;
+    border-width: 0;
+    text-align: center;
+    padding:3px;
+    color:rgba(0,0,0,0.8);
+    margin-top:1em;
+    color:rgb(193, 121, 121);
+    font-weight: bold;
+    cursor:pointer;
 }
 

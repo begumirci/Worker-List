@@ -1,5 +1,5 @@
 import './CustomForm.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CustomCart from './CustomCart';
 import '../App.css';
 import ErrorModal from './ErrorModal';
@@ -8,11 +8,20 @@ import ErrorModal from './ErrorModal';
 function CustomForm(){
     const [name, setName] = useState('');
     const [salary, setSalary] = useState(''); 
-    const [users, setUser] = useState([]);
     const [error, setError] = useState('');
     const [isError, setIserror] = useState(false);
     // const [isSalary, setIsSalary] = useState(false);
     // const [isName,setIsName] = useState(false);
+
+    const [users, setUser] = useState(
+        localStorage.getItem('users') ? 
+        JSON.parse(localStorage.getItem('users')) : []
+    );
+
+    useEffect(() => {
+        localStorage.setItem('users', JSON.stringify(users));
+    }, [users]);
+
 
     function addCustom(e){
         e.preventDefault();

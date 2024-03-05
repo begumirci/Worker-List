@@ -1,5 +1,4 @@
 .container {
-  margin-top: 7em;
   margin-left: 15%;
   margin-right: 15%;
   display: flex;
@@ -11,12 +10,13 @@
 
 .CustomForm {
   display: flex;
+  padding-inline: 30px;
+  padding-block: 40px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  width: 350px;
-  height: 400px;
+
   border-radius: 50px;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
@@ -60,7 +60,7 @@
 }
 
 .custom-save {
-  width: 250px;
+  width: 200px;
   border-radius: 50px;
   box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,
     rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
@@ -103,8 +103,7 @@
 .cart-header {
   display: flex;
   justify-content: space-between;
-  margin-left: 15%;
-  margin-right: 15%;
+
   margin-top: 1em;
   font-size: 20px;
   color: rgba(0, 0, 0, 0.3);
@@ -114,15 +113,17 @@
 .cart {
   display: flex;
   justify-content: space-between;
-  margin-left: 15%;
-  margin-right: 15%;
+  gap: 15px;
+  padding-block: 5px;
+  white-space: nowrap;
+  padding-inline: 10px;
   margin-top: 1em;
   font-size: 20px;
   color: rgba(0, 0, 0, 0.3);
   margin-bottom: 1em;
   box-shadow: inset 100px 100px 100px -72px rgb(193, 121, 121);
   border-radius: 5em;
-  padding-inline: 7px;
+
   cursor: pointer;
 }
 
@@ -130,7 +131,8 @@
   border-radius: 30px;
   background: #ebc6c6;
   box-shadow: 15px 15px rgb(193, 121, 121);
-  min-width: 350px;
+  padding-inline: 30px;
+  padding-block: 40px;
 }
 
 .warning-msg {
@@ -199,4 +201,18 @@ h6 {
     rgba(45, 35, 66, 0.2) 0 7px 13px -3px, rgb(193, 121, 121) 0 -3px 0 inset;
   transform: translateY(-2px);
   color: rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 730px) {
+  .container {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 1;
+  }
 }

@@ -7,7 +7,7 @@ body {
 h1 {
   text-align: center;
   color: lightcoral;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 .container {
   display: flex;
@@ -17,7 +17,7 @@ h1 {
   z-index: 1;
 }
 .big-container {
-  margin-top: 10%;
+  margin-top: 7%;
   margin-inline: 20px;
 }
 .search-input {

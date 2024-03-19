@@ -1,12 +1,37 @@
+body {
+  font-family: 'Lekton', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  text-align: center;
+  color: lightcoral;
+  margin-bottom: 4rem;
+}
 .container {
-  margin-top: 15%;
-  margin-left: 15%;
-  margin-right: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
   z-index: 1;
+}
+.big-container {
+  margin-top: 15%;
+  margin-inline: 20px;
+}
+.search-input {
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid lightcoral;
+  padding-block: 3px;
+  padding-inline: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  width: 150px;
+  transition: width 0.2s ease-in;
+  &:focus {
+    width: 200px;
+  }
 }
 
 .CustomForm {
@@ -19,7 +44,7 @@
   gap: 20px;
   border-radius: 50px;
   background: #e0e0e0;
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  box-shadow: 15px 15px #8e8d8d;
 }
 
 .CustomForm label {
@@ -100,31 +125,29 @@
   transform: translateY(2px);
 }
 
-.cart-header {
-  display: flex;
-  justify-content: space-between;
-
-  margin-top: 1em;
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.3);
-  font-weight: bold;
-}
-
 .cart {
   display: flex;
-  justify-content: space-between;
-  gap: 15px;
+  flex-direction: column;
   padding-block: 5px;
-  white-space: nowrap;
   padding-inline: 10px;
   margin-top: 1em;
   font-size: 20px;
   color: rgba(0, 0, 0, 0.3);
   margin-bottom: 1em;
   box-shadow: inset 100px 100px 100px -72px rgb(193, 121, 121);
-  border-radius: 5em;
-
+  border-radius: 12px;
   cursor: pointer;
+  & div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding-inline: 8px;
+    & h6 {
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+    }
+  }
 }
 
 .custom-list {
@@ -204,10 +227,11 @@ h6 {
 }
 
 @media only screen and (max-width: 730px) {
+  h1 {
+    margin-bottom: 2rem;
+  }
   .container {
     margin-top: 10%;
-    margin-left: 15%;
-    margin-right: 15%;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -215,5 +239,21 @@ h6 {
     align-items: center;
     gap: 40px;
     z-index: 1;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .cart {
+    & div {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      align-items: center;
+      padding-inline: 8px;
+      & h6 {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.3);
+        font-weight: bold;
+      }
+    }
   }
 }

@@ -1,17 +1,12 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import CustomForm from './components/CustomForm'
-
+import './App.css';
+import CustomForm from './components/CustomForm';
 
 function App() {
-  
-  
   return (
     <>
       <CustomForm />
-      
     </>
-  )
+  );
 }
 
-export default App
+export default App;
